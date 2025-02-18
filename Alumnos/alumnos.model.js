@@ -1,48 +1,52 @@
 import { Schema, model } from "mongoose";
 
-const UserSchema = Schema({
+const AlumnoSchema = Schema({
     name: {
         type: String,
-        required: [true, 'Name is required'],
-        maxLength: [25, 'Can´t be overcome 25 cheracters']
+        required: [true, 'El nombre es obligatorio'],
+        maxLength: [25, 'No puede superar los 25 caracteres']
     },
     surname: {
         type: String,
-        required: [true, 'Surname is required'],
-        maxLength: [25, 'Can"t be overcome 25 characters '],
-        unique: true
+        required: [true, 'El apellido es obligatorio'],
+        maxLength: [25, 'No puede superar los 25 caracteres']
     },
     username: {
         type: String,
-        unique: true
+        unique: true,
+        required: [true, 'El nombre de usuario es obligatorio']
     },
     email: {
         type: String,
-        required: [true, "Email is required"],
-        maxLength: [25, "Can;t be overcome 25 characters"]
+        required: [true, "El correo es obligatorio"],
+        unique: true
     },
     password: {
         type: String,
-        required: [true, 'Password is required']
+        required: [true, 'La contraseña es obligatoria']
     },
     profilePicture: {
         type: String,
     },
     phone: {
         type: String,
-        minLength: 8,
-        maxLength: 8,
-        required: [true, 'Phone number is required']
+        minLength: [8, 'El número de teléfono debe tener 8 dígitos'],
+        maxLength: [8, 'El número de teléfono debe tener 8 dígitos'],
+        required: [true, 'El número de teléfono es obligatorio']
     },
     role: {
         type: String,
         required: true,
-        enum: ['ADMIN_ROLE','USER_ROLE']
+        enum: ['STUDENT_ROLE']
     },
     estado: {
         type: Boolean,
         default: true
     },
+    cursos: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Curso'
+    }]
 },
     {
         timestamps: true,
@@ -50,12 +54,10 @@ const UserSchema = Schema({
     }
 );
 
-UserSchema.methods.toJson = function(){
-    const {__v, password, _id, ...usuario
-        
-    } = this.toObjects();
-    usuario.uid = _id;
-    return usuario;
+AlumnoSchema.methods.toJSON = function(){
+    const { __v, password, _id, ...alumno } = this.toObject();
+    alumno.uid = _id;
+    return alumno;
 }
 
-export default model('User', UserSchema);
+export default model('Alumno', AlumnoSchema);
