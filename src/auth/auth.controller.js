@@ -1,49 +1,57 @@
-import { Router } from "express";
-import { check } from "express-validator";
-import { login, registerAlumno, registerMaestro } from "../auth/auth.controller.js";
-import { validarCampos } from "../middlewares/validar-campos.js";
+import jwt from 'jsonwebtoken';
+import argon2 from 'argon2';
+import Teacher from '../Teachers/teacher.model.js';
+import Student from '../Students/student.model.js';
 
-const router = Router();
+export const login = async (req, res) => {
+    const { email, password } = req.body;
 
+    try {
+        let usuario = await Teacher.findOne({ email });
 
-router.post(
-    "/login",
-    [
-        check("email", "El email no es válido").optional().isEmail(),
-        check("password", "La contraseña es obligatoria").not().isEmpty(),
-        validarCampos
-    ],
-    login
-);
+        if (!usuario) {
+            usuario = await Student.findOne({ email });
+        }
 
+        if (!usuario) {
+            return res.status(400).json({
+                success: false,
+                msg: 'Usuario no encontrado'
+            });
+        }
 
-router.post(
-    "/register/alumno",
-    [
-        check("name", "El nombre es obligatorio").not().isEmpty(),
-        check("surname", "El apellido es obligatorio").not().isEmpty(),
-        check("username", "El nombre de usuario es obligatorio").not().isEmpty(),
-        check("email", "El email no es válido").isEmail(),
-        check("phone", "El número de teléfono debe contener 8 dígitos").isLength({ min: 8, max: 8 }),
-        check("password", "La contraseña debe tener al menos 6 caracteres").isLength({ min: 6 }),
-        validarCampos
-    ],
-    registerAlumno
-);
+        const validPassword = await argon2.verify(usuario.password, password);
+        if (!validPassword) {
+            return res.status(400).json({
+                success: false,
+                msg: 'Contraseña incorrecta'
+            });
+        }
 
+        const token = jwt.sign(
+            { uid: usuario._id, role: usuario.role },
+            process.env.SECRETORPRIVATEKEY,
+            { expiresIn: '1h' }
+        );
 
-router.post(
-    "/register/maestro",
-    [
-        check("name", "El nombre es obligatorio").not().isEmpty(),
-        check("surname", "El apellido es obligatorio").not().isEmpty(),
-        check("username", "El nombre de usuario es obligatorio").not().isEmpty(),
-        check("email", "El email no es válido").isEmail(),
-        check("phone", "El número de teléfono debe contener 8 dígitos").isLength({ min: 8, max: 8 }),
-        check("password", "La contraseña debe tener al menos 6 caracteres").isLength({ min: 6 }),
-        validarCampos
-    ],
-    registerMaestro
-);
+        res.status(200).json({
+            success: true,
+            msg: 'Login exitoso',
+            token,
+            usuario: {
+                uid: usuario._id,
+                name: usuario.name,
+                surname: usuario.surname,
+                email: usuario.email,
+                role: usuario.role
+            }
+        });
 
-export default router;
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            success: false,
+            msg: 'Error en el servidor'
+        });
+    }
+};

@@ -1,0 +1,122 @@
+{
+	"info": {
+		"_postman_id": "551f89fa-1193-44af-8e2a-004812460de8",
+		"name": "Teachers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42121262"
+	},
+	"item": [
+		{
+			"name": "Agregar Profesores",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"fernando alonzo\",\r\n  \"surname\": \"falonzo\",\r\n  \"email\": \"falon@gmail.com\",\r\n  \"password\": \"password123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/educationSystem/v1/teachers/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"educationSystem",
+						"v1",
+						"teachers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Profesores",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "67b37799936277947c44cd91",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n  \"name\": \"Matemáticas Avanzadas\",\r\n  \"description\": \"Curso de matemáticas para estudiantes avanzados\",\r\n  \"teacherId\": \"67b37799936277947c44cd91\"  \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/educationSystem/v1/teachers/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"educationSystem",
+						"v1",
+						"teachers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cursos impartidos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2IzY2I0ZDUzZmFjMWYyZDJkODc5ZWMiLCJyb2xlIjoiVEVBQ0hFUl9ST0xFIiwiaWF0IjoxNzM5ODQwMTE3LCJleHAiOjE3Mzk4NDM3MTd9.5P3jB2KwjD9gWn2WHsTJwy_1drxddfCFXQ803MQrwu0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n  \"name\": \"Matemáticas Avanzadas\",\r\n  \"description\": \"Curso de matemáticas para estudiantes avanzados\",\r\n  \"teacherId\": \"67b37799936277947c44cd91\"  \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/educationSystem/v1/teachers/courses/67b3cba10ddf803aecaa90d5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"educationSystem",
+						"v1",
+						"teachers",
+						"courses",
+						"67b3cba10ddf803aecaa90d5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

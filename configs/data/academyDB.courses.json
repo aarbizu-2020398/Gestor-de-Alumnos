@@ -1,0 +1,90 @@
+[{
+  "_id": {
+    "$oid": "67b3d09b68e2170939c8407a"
+  },
+  "name": "Matemáticas Avanzadas",
+  "description": "Curso de matemáticas para estudiantes avanzados",
+  "teacher": {
+    "$oid": "67b3cba10ddf803aecaa90d5"
+  },
+  "students": [],
+  "estado": true,
+  "createdAt": {
+    "$date": "2025-02-18T00:13:15.391Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-18T01:36:46.635Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67b3d12768e2170939c8407e"
+  },
+  "name": "Literatura",
+  "description": "Curso de Literatura avanzada",
+  "teacher": {
+    "$oid": "67b3cba10ddf803aecaa90d5"
+  },
+  "students": [],
+  "estado": true,
+  "createdAt": {
+    "$date": "2025-02-18T00:15:35.799Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-18T01:32:16.693Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67b3d14d68e2170939c84082"
+  },
+  "name": "Fisíca F",
+  "description": "Curso de Fisíca Basica",
+  "teacher": {
+    "$oid": "67b3cba10ddf803aecaa90d5"
+  },
+  "students": [],
+  "estado": false,
+  "createdAt": {
+    "$date": "2025-02-18T00:16:13.923Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-18T01:52:09.855Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67b3d33a68e2170939c84099"
+  },
+  "name": "Biología",
+  "description": "Biología Basica",
+  "teacher": {
+    "$oid": "67b3cbd60ddf803aecaa90d9"
+  },
+  "students": [],
+  "estado": true,
+  "createdAt": {
+    "$date": "2025-02-18T00:24:26.171Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-18T00:45:05.132Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67b3e59acdc80e847266475d"
+  },
+  "name": "Estadistica",
+  "description": "Estadistica Basica",
+  "teacher": {
+    "$oid": "67b3cba10ddf803aecaa90d5"
+  },
+  "students": [],
+  "estado": true,
+  "createdAt": {
+    "$date": "2025-02-18T01:42:50.093Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-18T02:44:47.411Z"
+  }
+}]

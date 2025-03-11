@@ -1,0 +1,216 @@
+{
+	"info": {
+		"_postman_id": "f5ff9cf6-7c2c-4257-98aa-7a4b1330f309",
+		"name": "Students",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42121262"
+	},
+	"item": [
+		{
+			"name": "Agregar Alumno",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n  \"name\": \"Pedro Gonzalez\",\r\n  \"surname\": \"pgonz\",\r\n  \"email\": \"pgonzalez@gmail.com\",\r\n  \"password\": \"password123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/educationSystem/v1/students/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"educationSystem",
+						"v1",
+						"students",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Asignar Curso",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2IzZDE5NzY4ZTIxNzA5MzljODQwODYiLCJyb2xlIjoiU1RVREVOVF9ST0xFIiwiaWF0IjoxNzM5ODQ2NTY4LCJleHAiOjE3Mzk4NTAxNjh9.n65TC-K3Jqu9N1asGdYYRR-o8vIW6Xn38S0NqSzs3lo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"courseId\": \"67b3d12768e2170939c8407e\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/educationSystem/v1/students/assign-course/67b3d19768e2170939c84086",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"educationSystem",
+						"v1",
+						"students",
+						"assign-course",
+						"67b3d19768e2170939c84086"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Alumnos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/educationSystem/v1/students/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"educationSystem",
+						"v1",
+						"students",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cursos Recibidos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2IzZDE5NzY4ZTIxNzA5MzljODQwODYiLCJyb2xlIjoiU1RVREVOVF9ST0xFIiwiaWF0IjoxNzM5ODQ2NTY4LCJleHAiOjE3Mzk4NTAxNjh9.n65TC-K3Jqu9N1asGdYYRR-o8vIW6Xn38S0NqSzs3lo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Matemáticas Avanzadas\",\r\n  \"description\": \"Curso de matemáticas para estudiantes avanzados\",\r\n  \"teacherId\": \"67b3cb4d53fac1f2d2d879ec\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/educationSystem/v1/students/courses/67b3d19768e2170939c84086",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"educationSystem",
+						"v1",
+						"students",
+						"courses",
+						"67b3d19768e2170939c84086"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar cuenta",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2IzZDFkMTY4ZTIxNzA5MzljODQwODgiLCJyb2xlIjoiU1RVREVOVF9ST0xFIiwiaWF0IjoxNzM5ODQ0NzU2LCJleHAiOjE3Mzk4NDgzNTZ9.1FxZiD2RGpEqsolkkB0Q5yCSM3c_Vhe3B7cwDiyXums",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Matemáticas Avanzadas\",\r\n  \"description\": \"Curso de matemáticas para estudiantes avanzados\",\r\n  \"teacherId\": \"67b3cb4d53fac1f2d2d879ec\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/educationSystem/v1/students/67b3d1d168e2170939c84088",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"educationSystem",
+						"v1",
+						"students",
+						"67b3d1d168e2170939c84088"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar Cuenta",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2IzZDIwOTY4ZTIxNzA5MzljODQwOGEiLCJyb2xlIjoiU1RVREVOVF9ST0xFIiwiaWF0IjoxNzM5ODQ1OTg0LCJleHAiOjE3Mzk4NDk1ODR9.BiVUM7mz6dKKNJ_ZThboofK16tiaev52GKLpeZvpqDY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Pedrillo Guzman\",\r\n  \"surname\": \"pguz\",\r\n  \"email\": \"pguzman@gmail.com\",\r\n  \"password\": \"password123\", \r\n  \"newPassword\": \"lacontra212\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/educationSystem/v1/students/67b3d20968e2170939c8408a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"educationSystem",
+						"v1",
+						"students",
+						"67b3d20968e2170939c8408a"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

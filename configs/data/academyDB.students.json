@@ -1,0 +1,68 @@
+[{
+  "_id": {
+    "$oid": "67b3d19768e2170939c84086"
+  },
+  "name": "Ana López",
+  "surname": "Martínez",
+  "email": "ana.lopez@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$t6HzRimSAe7siRi7DkPdGA$DqL6w+kcsuuD6lNEOEzTxF1SH1qUDFGPmhqnniG7Exk",
+  "role": "STUDENT_ROLE",
+  "courses": [
+    {
+      "$oid": "67b3d09b68e2170939c8407a"
+    },
+    {
+      "$oid": "67b3d12768e2170939c8407e"
+    },
+    {
+      "$oid": "67b3e59acdc80e847266475d"
+    }
+  ],
+  "estado": true,
+  "createdAt": {
+    "$date": "2025-02-18T00:17:27.120Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-18T02:44:10.193Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67b3d1d168e2170939c84088"
+  },
+  "name": "Miguel Ramirez",
+  "surname": "ramirezM",
+  "email": "mramiraz@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$KZLexbY8nEj0UUK6h+O2bA$Sr4oAb0vSsO9fbjPhGb7qyBsAof6KYLnhVZQbR0mgNI",
+  "role": "STUDENT_ROLE",
+  "courses": [
+    {
+      "$oid": "67b3d12768e2170939c8407e"
+    }
+  ],
+  "estado": true,
+  "createdAt": {
+    "$date": "2025-02-18T00:18:25.838Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-18T02:12:46.670Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67b3d20968e2170939c8408a"
+  },
+  "name": "Pedrillo Guzman",
+  "surname": "pguz",
+  "email": "pguzman@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$FCF7IgL+ghy96A/ZwCahrQ$KuMsMyensuPYPej3dEzcldsaosUWFCZXltpzj6iuzvA",
+  "role": "STUDENT_ROLE",
+  "courses": [],
+  "estado": true,
+  "createdAt": {
+    "$date": "2025-02-18T00:19:21.679Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-18T02:38:38.535Z"
+  }
+}]

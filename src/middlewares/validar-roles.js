@@ -1,19 +1,19 @@
-export const tieneRol = (...rolesPermitidos) => {
+export const tieneRole = (...roles) => {
     return (req, res, next) => {
         if (!req.usuario) {
             return res.status(500).json({
                 success: false,
-                msg: "Es necesario verificar el rol del usuario antes de validar permisos."
+                msg: "Se quiere verificar un rol, pero no se ha validado el token primero"
             });
         }
 
-        if (!rolesPermitidos.includes(req.usuario.role)) {
-            return res.status(403).json({
+        if (!roles.includes(req.usuario.role)) {
+            return res.status(401).json({
                 success: false,
-                msg: `Acceso denegado. Tu rol actual es ${req.usuario.role}, pero se requieren los siguientes roles: ${rolesPermitidos.join(", ")}.`
+                msg: `Usuario no autorizado. Posee el rol ${req.usuario.role}, pero los roles autorizados son: ${roles.join(", ")}`
             });
         }
 
         next();
     };
-}
+};
